@@ -22,7 +22,7 @@ Facter.add("kernel_modules") do
     setcode do
       if File.file?(MODFILE)
         modules = get_modules
-        modules.to_a.join(",")
+        modules.to_a.sort.join(",")
       else
         modules = ""
       end
